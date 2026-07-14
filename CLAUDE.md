@@ -2,6 +2,11 @@
 
 This file outlines the build commands, styling guidelines, and conventions for the Fly Rank Capstone repository.
 
+## Writing Voice (Voice Card)
+- **Style**: Conversational, punchy, direct, grounded, technical
+- Avoid corporate jargon, fluff, and generic buzzwords. Speak honestly, show technical details, and keep copy tight.
+
+
 ## Tech Stack & Architecture
 - **Core**: HTML5, Vanilla JavaScript (ES6+).
 - **Styling**: Vanilla CSS (no CSS frameworks unless explicitly configured/requested).
