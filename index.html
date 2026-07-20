@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Dynamic Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="settings-container">
+    <h1 id="settings-title">Account Settings</h1>
+    <p class="settings-subtitle">Manage your profile, email address, and security preferences.</p>
+
+    <!-- Global form feedback accessible to screen readers -->
+    <div id="form-feedback" class="feedback-container" aria-live="polite" role="status"></div>
+
+    <form id="settingsForm" class="settings-form" novalidate>
+        <!-- Full Name Group -->
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name"
+                autocomplete="name" 
+                required 
+                aria-required="true"
+                aria-describedby="name-error name-desc"
+            >
+            <small id="name-desc" class="field-desc">Letters and spaces only, minimum 2 characters.</small>
+            <span id="name-error" class="field-error" aria-live="assertive"></span>
+        </div>
+
+        <!-- Email Group -->
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email"
+                autocomplete="email" 
+                required 
+                aria-required="true"
+                aria-describedby="email-error"
+            >
+            <span id="email-error" class="field-error" aria-live="assertive"></span>
+        </div>
+
+        <!-- Password Group -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password"
+                autocomplete="new-password" 
+                required 
+                aria-required="true"
+                aria-describedby="password-error password-desc"
+            >
+            <small id="password-desc" class="field-desc">Minimum 8 characters, must include at least 1 number and 1 special character.</small>
+            <span id="password-error" class="field-error" aria-live="assertive"></span>
+        </div>
+
+        <!-- Notification Preferences -->
+        <div class="form-group checkbox-group">
+            <label class="checkbox-label" for="notifications">
+                <input 
+                    type="checkbox" 
+                    id="notifications" 
+                    name="notifications"
+                >
+                <span class="custom-checkbox"></span>
+                Enable email notifications for security alerts
+            </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+            <button type="submit" id="save-btn" class="btn btn-primary">Save Settings</button>
+        </div>
+    </form>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

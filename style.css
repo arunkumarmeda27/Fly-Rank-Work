@@ -1,0 +1,207 @@
+/* Modern, high-fidelity dark mode design system */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --border-color: #334155;
+    --border-focus: #60a5fa;
+    --error-color: #f87171;
+    --error-bg: rgba(248, 113, 113, 0.1);
+    --success-color: #4ade80;
+    --success-bg: rgba(74, 222, 128, 0.1);
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.settings-container {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.025em;
+}
+
+.settings-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Explicit focus ring for keyboard accessibility */
+.form-group input:focus-visible {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+.field-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.field-error {
+    font-size: 0.75rem;
+    color: var(--error-color);
+    margin-top: 4px;
+    min-height: 16px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.form-group.has-error .field-error {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-group.has-error input {
+    border-color: var(--error-color);
+}
+
+.form-group.has-error input:focus-visible {
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25);
+}
+
+/* Checkbox alignment & Custom style */
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Form action buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+/* Global feedback messages styling */
+.feedback-container {
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: none;
+}
+
+.feedback-container.show {
+    display: block;
+    padding: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+.feedback-error {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+}
+
+.feedback-success {
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
